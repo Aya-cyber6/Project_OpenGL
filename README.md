@@ -40,6 +40,7 @@ Add the following: opengl32.lib; glfw3.lib; assimp-vc143-mt.lib;
 I used Acitve(Debug) configaration and all platforms but you can use whatever works for you 
 ![image](https://github.com/user-attachments/assets/97a9f7d0-d2ce-4066-a57c-0608d03fe5fd)
 
-credits:
+## Credits
+
 3D models by: https://www.models-resource.com/dreamcast/sonicadventure/
 Tutorial guidance and reference: [LearnOpenGL](https://learnopengl.com/)
