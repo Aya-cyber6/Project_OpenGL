@@ -45,3 +45,17 @@ Make sure the following libraries are installed and properly linked:
 
 - **3D Models from**: [The Models Resource – Sonic Adventure](https://www.models-resource.com/dreamcast/sonicadventure/)  
 - **Tutorial guidance and code structure**: [LearnOpenGL](https://learnopengl.com/)
+
+
+## Some screenshots from the scene
+
+![Screenshot 2025-05-10 002510](https://github.com/user-attachments/assets/b07cb43e-7abd-4196-83d0-936561d80524)
+
+
+![Screenshot 2025-05-10 002652](https://github.com/user-attachments/assets/35aaa64b-0896-4e29-aee7-5c9b8d48bdcb)
+
+
+![Screenshot 2025-05-10 002707](https://github.com/user-attachments/assets/ee8c4943-1c5e-4cf2-bd5d-af6a5a50e617)
+
+
+![Screenshot 2025-05-10 002605](https://github.com/user-attachments/assets/26e40c98-5fe9-4d9d-b6c5-8ebc2bf7f57f)
