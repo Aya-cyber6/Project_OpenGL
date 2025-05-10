@@ -16,7 +16,7 @@ void processInput(GLFWwindow* window);
 const unsigned int SCR_WIDTH = 1200;
 const unsigned int SCR_HEIGHT = 800;
 
-Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+Camera camera(glm::vec3(0.0f, 0.2f, 2.0f));  // Slightly higher Y and further Z
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -71,8 +71,7 @@ int main()
     // load models
     Model worldModel("res/Station Square Chao Garden/stationgarden.obj");
     Model tailesModel("res/miles/miles.obj");
-
-
+    Model sonicModel("res/sonic/sonic.obj");
 
 
     //////// render loop////////
@@ -95,21 +94,18 @@ int main()
         glm::vec3 lightDir = glm::vec3(-0.2f, -1.0f, -0.3f);
         ourShader.setVec3("light.direction", lightDir);
 
-        // Use cool blue tones
-        ourShader.setVec3("light.ambient", glm::vec3(0.1f, 0.1f, 0.3f));   // subtle blue ambient
-        ourShader.setVec3("light.diffuse", glm::vec3(0.3f, 0.3f, 1.0f));   // strong blue light
-        ourShader.setVec3("light.specular", glm::vec3(0.6f, 0.6f, 1.0f));  // shiny blue highlights
+        ourShader.setVec3("light.ambient", glm::vec3(0.2f, 0.2f, 0.2f));   // subtle white ambient
+        ourShader.setVec3("light.diffuse", glm::vec3(0.7f, 0.7f, 0.7f));   // brighter neutral light
+        ourShader.setVec3("light.specular", glm::vec3(0.5f, 0.5f, 0.5f));  // white highlights
+
 
         // Camera position (needed for specular calculation)
         ourShader.setVec3("viewPos", camera.Position);
-
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
         ourShader.setMat4("projection", projection);
         ourShader.setMat4("view", view);
-
-
 
         // Draw the world
         glm::mat4 model_world = glm::mat4(1.0f);
@@ -117,12 +113,22 @@ int main()
         ourShader.setMat4("model", model_world);
         worldModel.Draw(ourShader);
 
-        // Draw tails
+        // Draw tails - shift left, face camera
         glm::mat4 model_tails = glm::mat4(1.0f);
-        model_tails = glm::translate(model_tails, glm::vec3(0.0f, 0.09f, 0.0f)); // to the right and slightly behind
-        model_tails = glm::scale(model_tails, glm::vec3(0.02f)); // Adjust based on model size
+        model_tails = glm::translate(model_tails, glm::vec3(-0.1f, 0.09f, 0.0f));
+        model_tails = glm::rotate(model_tails, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); 
+        model_tails = glm::scale(model_tails, glm::vec3(0.02f));
         ourShader.setMat4("model", model_tails);
         tailesModel.Draw(ourShader);
+
+        // Draw sonic - shift right, face camera
+        glm::mat4 model_sonic = glm::mat4(1.0f);
+        model_sonic = glm::translate(model_sonic, glm::vec3(0.1f, 0.107f, 0.0f));
+        model_sonic = glm::rotate(model_sonic, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        model_sonic = glm::scale(model_sonic, glm::vec3(0.02f));
+        ourShader.setMat4("model", model_sonic);
+        sonicModel.Draw(ourShader);
+
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         glfwSwapBuffers(window);

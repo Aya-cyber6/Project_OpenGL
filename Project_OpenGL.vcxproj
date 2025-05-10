@@ -153,6 +153,7 @@
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\Users\ayakh\Downloads\RAPOR.pdf" />
     <None Include="default.frag" />
     <None Include="default.vert" />
   </ItemGroup>

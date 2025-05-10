@@ -64,5 +64,6 @@
     <None Include="default.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+    <None Include="C:\Users\ayakh\Downloads\RAPOR.pdf" />
   </ItemGroup>
 </Project>
