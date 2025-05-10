@@ -1,6 +1,7 @@
 # Project_OpenGL
 
 This project renders a 3D scene inspired by **Sonic Adventure**, featuring models such as Station Square Chao Garden and Tails (Miles). It uses modern OpenGL with shaders, camera movement, lighting, and model loading.
+Here is a detailed report about the project: [RAPOR.pdf](https://github.com/user-attachments/files/20131026/RAPOR.pdf)
 
 ## ✨ Features
 
